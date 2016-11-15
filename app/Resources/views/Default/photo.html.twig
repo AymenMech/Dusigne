@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Book photo | Remi Dusigne
+{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/gallery.css') }}"/>
+{% endblock %}
+{% block body %}
+    <section id="photos">
+        <img src="{{ asset('images/thumbs/1.jpg') }}" alt="">
+        <img src="{{ asset('images/thumbs/2.jpg') }}" alt="">
+        <img src="{{ asset('images/thumbs/3.jpg') }}" alt="">
+        <img src="{{ asset('images/thumbs/4.jpg') }}" alt="">
+        <img src="{{ asset('images/thumbs/5.jpg') }}" alt="">
+        <img src="{{ asset('images/thumbs/6.jpg') }}" alt="">
+        <img src="{{ asset('images/thumbs/7.jpg') }}" alt="">
+        <img src="{{ asset('images/thumbs/8.jpg') }}" alt="">
+        <img src="{{ asset('images/thumbs/9.jpg') }}" alt="">
+    </section>
+{% endblock %}
+{% block javascripts %}
+<script rel="test/javascript" src="{{ asset('js/gallery.js') }}"></script>
+{% endblock %}

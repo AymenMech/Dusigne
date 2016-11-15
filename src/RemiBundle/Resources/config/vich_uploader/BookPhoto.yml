@@ -1,0 +1,4 @@
+RemiBundle\Entity\BookPhoto:
+    imageFile:
+        mapping:           book_images
+        filename_property: image

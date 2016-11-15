@@ -1,0 +1,20 @@
+RemiBundle\Entity\BookPhoto:
+    type: entity
+    table: null
+    repositoryClass: RemiBundle\Repository\BookPhotoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        url:
+            type: string
+            length: 255
+        image:
+            type: string
+            length: 255
+        updateAt:
+            type: datetime
+    lifecycleCallbacks: {  }

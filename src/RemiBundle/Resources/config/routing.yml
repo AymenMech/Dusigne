@@ -1,0 +1,15 @@
+remi_homepage:
+    path:     /
+    defaults: { _controller: RemiBundle:Default:index }
+remi_activite:
+    path:     /activite
+    defaults: { _controller: RemiBundle:Default:activite }
+remi_parcours:
+    path:     /parcours
+    defaults: { _controller: RemiBundle:Default:parcours }
+remi_photo:
+    path:     /book_photo
+    defaults: { _controller: RemiBundle:Default:photo }
+remi_video:
+    path:     /book_video
+    defaults: { _controller: RemiBundle:Default:video }
