@@ -1,0 +1,24 @@
+test_index:
+    path:     /
+    defaults: { _controller: "RemiBundle:BookPhoto:index" }
+    methods:  GET
+
+test_show:
+    path:     /{id}/show
+    defaults: { _controller: "RemiBundle:BookPhoto:show" }
+    methods:  GET
+
+test_new:
+    path:     /new
+    defaults: { _controller: "RemiBundle:BookPhoto:new" }
+    methods:  [GET, POST]
+
+test_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RemiBundle:BookPhoto:edit" }
+    methods:  [GET, POST]
+
+test_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RemiBundle:BookPhoto:delete" }
+    methods:  DELETE

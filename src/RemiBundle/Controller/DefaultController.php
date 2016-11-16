@@ -2,6 +2,7 @@
 
 namespace RemiBundle\Controller;
 
+use RemiBundle\Entity\BookPhoto;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
@@ -20,7 +21,11 @@ class DefaultController extends Controller
     }
     public function photoAction()
     {
-        return $this->render('Default/photo.html.twig');
+        $req = $this->getDoctrine()->getRepository("RemiBundle:BookPhoto");
+        $data = $req->findAll();
+        return $this->render('Default/photo.html.twig',
+        array( 'photos' => $data ));
+
     }
     public function videoAction()
     {

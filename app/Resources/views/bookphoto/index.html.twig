@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Bookphotos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url</th>
+                <th>Image</th>
+                <th>Updateat</th>
+                <th>Enabled</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bookPhoto in bookPhotos %}
+            <tr>
+                <td><a href="{{ path('test_show', { 'id': bookPhoto.id }) }}">{{ bookPhoto.id }}</a></td>
+                <td>{{ bookPhoto.url }}</td>
+                <td>{{ bookPhoto.image }}</td>
+                <td>{% if bookPhoto.updateAt %}{{ bookPhoto.updateAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if bookPhoto.enabled %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('test_show', { 'id': bookPhoto.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('test_edit', { 'id': bookPhoto.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('test_new') }}">Create a new bookPhoto</a>
+        </li>
+    </ul>
+{% endblock %}

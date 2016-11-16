@@ -10,6 +10,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class BookPhoto
 {
+    private $url;
     private $image;
 
 
@@ -40,6 +41,7 @@ class BookPhoto
     public function setImage($image)
     {
         $this->image = $image;
+        $this->url = $image;
     }
 
     public function getImage()
@@ -51,7 +53,7 @@ class BookPhoto
 
     private $id;
 
-    private $url;
+
 
 
     public function getId()
@@ -60,17 +62,46 @@ class BookPhoto
     }
 
 
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
 
     public function getUrl()
     {
         return $this->url;
     }
 
+    public function getSlug()
+    {
+        return $this->url;
+    }
 
+
+
+    /**
+     * @var boolean
+     */
+    private $enabled;
+
+
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return BookPhoto
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
 }

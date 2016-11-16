@@ -8,15 +8,10 @@
 {% endblock %}
 {% block body %}
     <section id="photos">
-        <img src="{{ asset('images/thumbs/1.jpg') }}" alt="">
-        <img src="{{ asset('images/thumbs/2.jpg') }}" alt="">
-        <img src="{{ asset('images/thumbs/3.jpg') }}" alt="">
-        <img src="{{ asset('images/thumbs/4.jpg') }}" alt="">
-        <img src="{{ asset('images/thumbs/5.jpg') }}" alt="">
-        <img src="{{ asset('images/thumbs/6.jpg') }}" alt="">
-        <img src="{{ asset('images/thumbs/7.jpg') }}" alt="">
-        <img src="{{ asset('images/thumbs/8.jpg') }}" alt="">
-        <img src="{{ asset('images/thumbs/9.jpg') }}" alt="">
+        {% for photo in photos %}
+            <img src="{{ asset('images/book/'~photo.url) }}" >
+
+        {% endfor %}
     </section>
 {% endblock %}
 {% block javascripts %}

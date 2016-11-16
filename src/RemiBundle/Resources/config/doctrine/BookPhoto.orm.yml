@@ -17,4 +17,6 @@ RemiBundle\Entity\BookPhoto:
             length: 255
         updateAt:
             type: datetime
+        enabled:
+            type: boolean
     lifecycleCallbacks: {  }

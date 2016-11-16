@@ -7,12 +7,12 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
     app.path.book_images: /images/book
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -74,22 +74,39 @@ vich_uploader:
         book_images:
             uri_prefix:         %app.path.book_images%
             upload_destination: %kernel.root_dir%/../web/images/book
+            namer:              vich_uploader.namer_uniqid
 
 easy_admin:
+    site_name: 'Remi Back-Office'
+    design:
+        menu:
+            - { entity: 'BookPhoto', params: { sortField: '$updateAt' } }
+        form_theme:   'vertical'
+    list:
+        actions:
+            - { name: 'edit', icon: 'pencil' }
+            - { name: 'delete', icon: 'delete'}
     formats:
         date: 'd/m/Y'
     entities:
         BookPhoto:
             class: RemiBundle\Entity\BookPhoto
+            label: 'Book Photo'
+            form:
+                title: 'Ajouter une photo'
+                fields:
+                    - { property: 'imageFile', type: 'file' }
+                    - { property: 'enabled', label: Afficher }
             list:
+                title: 'Book Photo'
+                actions:
+                    - { name: 'edit', label: 'Modifier', icon: 'edit' }
+                    - { name: 'delete', label: 'Supprimer', icon: 'trash' }
                 fields:
                     - { property: 'image', type: 'image', base_path: %app.path.book_images% }
-               # ...
+                    - { property: 'enabled', label: Afficher }
             show:
                 fields:
                     - { property: 'image', type: 'image', base_path: %app.path.book_images% }
-            form:
-                fields:
-                    - { property: 'imageFile', type: 'file' }
-                    - { property: 'url' }
+
 
