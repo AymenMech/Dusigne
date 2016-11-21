@@ -19,4 +19,6 @@ RemiBundle\Entity\BookPhoto:
             type: datetime
         enabled:
             type: boolean
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+        postRemove: [ removeUpload ]
+

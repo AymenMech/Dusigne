@@ -10,6 +10,17 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class BookPhoto
 {
+    /*
+     * Life Cycle call back
+     */
+    public function removeUpload()
+    {
+        if ($file = $this->getImageFile()) {
+            unlink($file);
+        }
+    }
+
+
     private $url;
     private $image;
 

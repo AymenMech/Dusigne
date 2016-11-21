@@ -80,7 +80,7 @@ easy_admin:
     site_name: 'Remi Back-Office'
     design:
         menu:
-            - { entity: 'BookPhoto', params: { sortField: '$updateAt' } }
+            - { entity: 'BookPhoto' }
         form_theme:   'vertical'
     list:
         actions:
