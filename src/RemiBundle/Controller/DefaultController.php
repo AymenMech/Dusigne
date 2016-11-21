@@ -26,7 +26,7 @@ class DefaultController extends Controller
 
     public function parcoursCVAction()
     {
-        return new BinaryFileResponse('');
+        return new BinaryFileResponse('../web/file/CV-Rémi-Dusigne.pdf');
     }
     public function photoAction()
     {
