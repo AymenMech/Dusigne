@@ -9,6 +9,7 @@ imports:
 parameters:
     locale: fr
     app.path.book_images: /images/book
+    app.path.parcour_image: /images/parcour
 
 framework:
     #esi:             ~
@@ -75,12 +76,18 @@ vich_uploader:
             uri_prefix:         %app.path.book_images%
             upload_destination: %kernel.root_dir%/../web/images/book
             namer:              vich_uploader.namer_uniqid
+        parcour_image:
+            uri_prefix:         %app.path.parcour_image%
+            upload_destination: %kernel.root_dir%/../web/images/parcour
+            namer:              vich_uploader.namer_uniqid
+
 
 easy_admin:
     site_name: 'Remi Back-Office'
     design:
         menu:
-            - { entity: 'BookPhoto' }
+            - { entity: 'BookPhoto', icon: 'image' }
+            - { entity: 'Parcours', icon: 'graduation-cap' }
         form_theme:   'vertical'
     list:
         actions:
@@ -102,11 +109,41 @@ easy_admin:
                 actions:
                     - { name: 'edit', label: 'Modifier', icon: 'edit' }
                     - { name: 'delete', label: 'Supprimer', icon: 'trash' }
+                    - { name: 'new', label: 'Ajouter une photo', icon: 'plus'}
                 fields:
-                    - { property: 'image', type: 'image', base_path: %app.path.book_images% }
+                    - { property: 'image', label: 'Photo', type: 'image', base_path: %app.path.book_images% }
                     - { property: 'enabled', label: Afficher }
             show:
                 fields:
                     - { property: 'image', type: 'image', base_path: %app.path.book_images% }
+                actions:
 
+        Parcours:
+            class: RemiBundle\Entity\Parcours
+            label: 'Parcours'
+            form:
+                title: 'Ajouter une expérience'
+                fields:
+                    - { property: 'date' }
+                    - { property: 'title', label: 'Titre' }
+                    - { property: 'resume', label: 'Descrition'}
+                    - { property: 'imageFile', type: 'file' }
+                    - { property: 'enabled', label: 'Afficher' }
+                    - { property: 'imageFile', type: 'file' }
+            list:
+                title: 'Mes expériences'
+                actions:
+                    - { name: 'edit', label: 'Modifier', icon: 'edit' }
+                    - { name: 'delete', label: 'Supprimer', icon: 'trash' }
+                    - { name: 'new', label: 'Ajouter une expérience', icon: 'plus'}
+                    - { name: 'show', label: 'Afficher', icon: 'object-group'}
+                fields:
+                    - { property: 'date' }
+                    - { property: 'title', label: 'Titre' }
+                    - { property: 'enabled', label: 'Afficher' }
+                    - { property: 'image', label: 'Photo', type: 'image', base_path: %app.path.parcour_image% }
+            show:
+                fields: ['date', { property: 'title', label: 'Titre' }, { property: 'resume', label: 'Decription' } { property: 'image', label: 'Photo', type: 'image', base_path: %app.path.parcour_image% }, { property: 'enabled', label: 'Afficher' }]
+
+                actions:
 

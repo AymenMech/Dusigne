@@ -1,0 +1,4 @@
+RemiBundle\Entity\Parcours:
+    imageFile:
+        mapping:           parcour_image
+        filename_property: image

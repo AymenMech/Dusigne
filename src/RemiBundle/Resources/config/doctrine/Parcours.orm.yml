@@ -1,0 +1,30 @@
+RemiBundle\Entity\Parcours:
+    type: entity
+    table: null
+    repositoryClass: RemiBundle\Repository\ParcoursRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        date:
+            type: string
+            length: 255
+            column: Date
+        title:
+            type: string
+            length: 255
+        resume:
+            type: text
+        image:
+            type: string
+            length: 255
+            nullable: true
+        updateAt:
+            type: datetime
+        enabled:
+            type: boolean
+    lifecycleCallbacks:
+        postRemove: [ removeUpload ]

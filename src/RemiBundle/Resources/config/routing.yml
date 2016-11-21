@@ -7,6 +7,9 @@ remi_activite:
 remi_parcours:
     path:     /parcours
     defaults: { _controller: RemiBundle:Default:parcours }
+remi_parcoursCV:
+    path:     /parcours/CV
+    defaults: { _controller: RemiBundle:Default:parcoursCV }
 remi_photo:
     path:     /book_photo
     defaults: { _controller: RemiBundle:Default:photo }

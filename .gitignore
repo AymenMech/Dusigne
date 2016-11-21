@@ -1,5 +1,6 @@
 /web/bundles/
 /web/images/book/*
+/web/images/parcour/*
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml

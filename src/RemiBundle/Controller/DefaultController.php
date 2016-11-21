@@ -4,6 +4,7 @@ namespace RemiBundle\Controller;
 
 use RemiBundle\Entity\BookPhoto;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class DefaultController extends Controller
 {
@@ -17,14 +18,22 @@ class DefaultController extends Controller
     }
     public function parcoursAction()
     {
-        return $this->render('Default/parcours.html.twig');
+        $req = $this->getDoctrine()->getRepository('RemiBundle:Parcours');
+        $data = $req->findAll();
+        return $this->render('Default/parcours.html.twig',
+            array('parcours' => $data));
+    }
+
+    public function parcoursCVAction()
+    {
+        return new BinaryFileResponse('');
     }
     public function photoAction()
     {
         $req = $this->getDoctrine()->getRepository("RemiBundle:BookPhoto");
         $data = $req->findAll();
         return $this->render('Default/photo.html.twig',
-        array( 'photos' => $data ));
+            array( 'photos' => $data ));
 
     }
     public function videoAction()

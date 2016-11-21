@@ -10,7 +10,18 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class BookPhoto
 {
+    /*
+     * Life Cycle call back
+     */
+    public function removeUpload()
+    {
+        if ($file = $this->getImageFile()) {
+            unlink($file);
+        }
+    }
 
+
+    private $url;
     private $image;
 
 
@@ -53,7 +64,7 @@ class BookPhoto
 
     private $id;
 
-    private $url;
+
 
 
     public function getId()
@@ -75,4 +86,33 @@ class BookPhoto
 
 
 
+    /**
+     * @var boolean
+     */
+    private $enabled;
+
+
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return BookPhoto
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
 }
